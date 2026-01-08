@@ -1,0 +1,201 @@
+/* Elegant Professional Theme for Tiket Konser */
+:root {
+  /* Musica palette: bright blue + cream */
+  --bg: #f7fbff;            /* creamish base */
+  --card: #ffffff;          /* pure card */
+  --muted: #3b4a63;         /* stronger neutral for readability */
+  --text: #0b1228;          /* deeper main text for higher contrast */
+  --primary: #14b8a6;       /* emerald/teal */
+  --primary-2: #0ea5e9;     /* sky blue to blend with emerald */
+  --accent: #a7f3d0;        /* minty accent */
+  --danger: #ff6b6b;
+  --ring: rgba(20, 184, 166, 0.35);
+  --shadow: 0 10px 25px rgba(17, 39, 84, .12);
+}
+
+html, body {
+  background: conic-gradient(from 200deg at 110% -10%, rgba(20,184,166,.10), transparent 25%),
+              radial-gradient(900px 600px at -10% 0%, rgba(14,165,233,.16), transparent 45%),
+              radial-gradient(1200px 800px at 120% 90%, rgba(167,243,208,.22), transparent 40%),
+              var(--bg);
+  color: var(--text);
+  font-family: Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  letter-spacing: .2px;
+}
+
+/* Abstract geometric accents */
+body::before {
+  content: '';
+  position: fixed;
+  inset: -15% -10% auto -10%;
+  height: 60vh;
+  z-index: -1;
+  background:
+    radial-gradient(120px 120px at 20% 60%, rgba(20,184,166,.28), transparent 60%),
+    radial-gradient(180px 180px at 70% 30%, rgba(14,165,233,.22), transparent 60%),
+    linear-gradient(135deg, rgba(167,243,208,.18) 0%, rgba(255,255,255,0) 40%);
+  transform: rotate(-3deg);
+  pointer-events: none;
+}
+
+.container { max-width: 1100px; }
+
+/* Headings */
+.h-title, h1, h2, h3, h4 {
+  color: #0e1730;
+  font-weight: 700;
+}
+
+h3.page-title {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  margin-bottom: 1.25rem;
+}
+
+h3.page-title::after {
+  content: '';
+  flex: 1 1 auto;
+  height: 1px;
+  background: linear-gradient(90deg, var(--primary-2), transparent);
+  opacity: .35;
+}
+
+/* Cards */
+.card {
+  background: linear-gradient(180deg, rgba(20,184,166,.06), rgba(255,255,255,1)) , var(--card);
+  border: 1px solid rgba(20,184,166,.14);
+  color: var(--text);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.card .card-body { padding: 1.1rem 1.1rem 1rem; }
+
+.card:hover { transform: translateY(-2px); transition: .25s ease; }
+
+.card h5 { font-weight: 700; margin-bottom: .35rem; }
+.card p { color: var(--muted); margin-bottom: .35rem; }
+
+/* Buttons */
+.btn {
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.08);
+  padding: .6rem .9rem;
+  font-weight: 600;
+  letter-spacing: .2px;
+  transition: .2s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(180deg, var(--primary), var(--primary-2));
+  box-shadow: 0 8px 18px var(--ring);
+}
+
+.btn-primary:hover { filter: brightness(1.05); transform: translateY(-1px); }
+
+.btn-success { background: linear-gradient(180deg, var(--accent), #00b39c); }
+.btn-danger  { background: linear-gradient(180deg, var(--danger), #ff4d4d); }
+
+/* Forms */
+.form-control {
+  background: #ffffff;
+  border: 1px solid rgba(45,123,255,.18);
+  color: var(--text);
+  border-radius: 10px;
+  padding: .7rem .9rem;
+}
+
+.form-control:focus {
+  background: #ffffff;
+  border-color: var(--primary-2);
+  box-shadow: 0 0 0 4px var(--ring);
+  color: var(--text);
+}
+
+/* Badges / price */
+.badge-price {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .35rem .6rem;
+  background: rgba(20,184,166,.10);
+  border: 1px solid rgba(20,184,166,.38);
+  color: #0ea5e9;
+  border-radius: 999px;
+  font-weight: 700;
+  letter-spacing: .3px;
+}
+
+/* Header / simple nav placeholder */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  backdrop-filter: saturate(180%) blur(8px);
+  background: linear-gradient(180deg, rgba(10,25,61,.92), rgba(10,25,61,.78)); /* dark blue */
+  border-bottom: 1px solid rgba(8,20,48,.55);
+}
+.site-header .brand {
+  font-weight: 800;
+  letter-spacing: .4px;
+  color: #f7fbff; text-decoration: none;
+}
+
+/* Brand with logo */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: .75rem;
+}
+.brand-logo {
+  width: 56px;
+  height: 56px;
+  display: inline-block;
+}
+/* Header buttons on dark background */
+.site-header .btn-outline-primary {
+  color: #e8f3ff;
+  border-color: rgba(255,255,255,.45);
+}
+.site-header .btn-outline-primary:hover {
+  background: rgba(255,255,255,.12);
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+/* Utilities */
+.text-muted { color: var(--muted) !important; }
+.shadow-soft { box-shadow: var(--shadow) !important; }
+.rounded-12 { border-radius: 12px; }
+.mt-6 { margin-top: 3.5rem; }
+
+/* Auth pages centering */
+.auth-wrap { min-height: 100vh; display: grid; place-items: center; }
+
+/* Avatars */
+.avatar, .avatar-sm, .avatar-md, .avatar-lg {
+  display: inline-block;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  object-fit: cover; object-position: center;
+  border: 2px solid rgba(255,255,255,.15);
+  box-shadow: 0 4px 12px rgba(0,0,0,.35);
+}
+.avatar-sm { width: 32px; height: 32px; }
+.avatar-md { width: 44px; height: 44px; }
+.avatar-lg { width: 72px; height: 72px; }
+.avatar-ring { box-shadow: 0 0 0 3px var(--ring); }
+
+/* Responsive tweaks */
+@media (max-width: 767.98px) {
+  .card .card-body { padding: .95rem; }
+  h3.page-title { font-size: 1.15rem; }
+}
+
+@media (min-width: 768px) {
+  .brand-logo { width: 64px; height: 64px; }
+}
+
+@media (min-width: 1200px) {
+  .brand-logo { width: 72px; height: 72px; }
+}
